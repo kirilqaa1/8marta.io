@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>С 8 марта!</title>
+</head>
+
+<body>
+    <h1>НАЖМИ НА КНОПКУ</h1>
+   
+    <button id="runaway" class="runaway-button">Нажми меня</button>
+    <p id="message" class="hidden">Ладно, хватит</p>
+    <button id="redirect" class="hidden" onclick="window.location.href='2.html'">Перейти дальше</button>
+    
+    <audio autoplay loop>
+        <source src="your-music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        const runawayButton = document.getElementById('runaway');
+        const message = document.getElementById('message');
+        const redirectButton = document.getElementById('redirect');
+        
+        runawayButton.addEventListener('mouseover', function() {
+            const x = Math.random() * (window.innerWidth - this.clientWidth);
+            const y = Math.random() * (window.innerHeight - this.clientHeight);
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+        });
+        
+        setTimeout(() => {
+            runawayButton.style.display = 'none';
+            message.classList.remove('hidden');
+            redirectButton.classList.remove('hidden');
+        }, 10000);
+    </script>
+</body>
+</html>
